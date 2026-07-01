@@ -1,0 +1,2 @@
+# Transfer-Learning-LoRa-on-Oxford-IIIT-Pet-Dataset
+Transfer learning and parameter-efficient fine-tuning (LoRA) with a pretrained ResNet on the Oxford-IIIT Pet dataset. Benchmarks full fine-tuning, linear probing, gradual unfreezing, and layer-wise fine-tuning against LoRA, with rank/alpha/learning-rate sweeps plus limited-data and class-imbalance experiments. Includes scripts, plots, and metrics.
