@@ -1,0 +1,8 @@
+# Core deep-learning stack (Oxford-IIIT Pet transfer-learning experiments)
+torch>=2.0
+torchvision>=0.15
+numpy>=1.24
+scipy>=1.10          # hierarchical clustering for the confusion analysis
+scikit-learn>=1.3    # F1 / classification_report in the imbalanced experiment
+matplotlib>=3.7
+Pillow>=9.0          # torchvision image backend

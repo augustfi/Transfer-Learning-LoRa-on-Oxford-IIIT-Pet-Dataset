@@ -46,7 +46,7 @@ data_augmentation = transforms.Compose([
 # In[3]:
 
 
-data_dir = ".."
+data_dir = "../.."
 full_train = datasets.OxfordIIITPet(root=data_dir,split="trainval", transform=data_transform, download=False, target_types="category")
 test = datasets.OxfordIIITPet(root=data_dir,split="test", transform=data_transform, download=False, target_types="category")
 
@@ -225,7 +225,7 @@ plt.ylabel('Accuracy')
 plt.legend(title='Fraction', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.grid(True)
 plt.tight_layout()
-plt.savefig('../results_limited_data/aug_accuracy_limited_data.png')  # Save the plot as a PNG file
+plt.savefig('../../data/figures/limited_data/aug_accuracy_limited_data.png')  # Save the plot as a PNG file
 plt.show()
 
 # Val Loss
@@ -239,6 +239,6 @@ plt.ylabel('Loss')
 plt.legend(title='Fraction', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.grid(True)
 plt.tight_layout()
-plt.savefig('../results_limited_data/aug_loss_limited_data.png')  # Save the plot as a PNG file
+plt.savefig('../../data/figures/limited_data/aug_loss_limited_data.png')  # Save the plot as a PNG file
 plt.show()
 
