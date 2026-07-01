@@ -1,3 +1,12 @@
+# --- run from anywhere (e.g. VS Code Code Runner): resolve data paths and
+# sibling imports relative to THIS file, not the caller's working dir ---
+import os as _os, sys as _sys
+_HERE = _os.path.dirname(_os.path.abspath(__file__))
+_os.chdir(_HERE)
+if _HERE not in _sys.path:
+    _sys.path.insert(0, _HERE)
+# --- end launch guard ---
+
 #!/usr/bin/env python
 # coding: utf-8
 

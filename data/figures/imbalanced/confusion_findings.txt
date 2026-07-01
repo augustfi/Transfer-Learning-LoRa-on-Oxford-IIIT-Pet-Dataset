@@ -1,0 +1,119 @@
+===== strategy: baseline  (mean +/- std over 5 seeds) =====
+
+[control pair -- both dogs at full data, scarcity ruled out]
+  true Staffordshire Bull Terrier -> pred American Pit Bull Terrier: 0.151+/-0.017 [5/5 seeds]
+  true American Pit Bull Terrier -> pred Staffordshire Bull Terrier: 0.280+/-0.030 [5/5 seeds]
+
+[Maine Coon / Persian / Ragdoll -- mutual, or different neighbours?]
+  Maine Coon  (recall 0.666) -> Bengal 0.100+/-0.032 [5/5 seeds], Abyssinian 0.058+/-0.020 [5/5 seeds], Ragdoll 0.054+/-0.015 [5/5 seeds], Persian 0.048+/-0.013 [5/5 seeds], British Shorthair 0.018+/-0.016 [3/5 seeds]
+  Persian  (recall 0.788) -> Maine Coon 0.104+/-0.043 [5/5 seeds], Ragdoll 0.026+/-0.005 [5/5 seeds], Samoyed 0.022+/-0.012 [4/5 seeds], Pomeranian 0.016+/-0.005 [5/5 seeds], British Shorthair 0.010+/-0.006 [4/5 seeds]
+  Ragdoll  (recall 0.624) -> Birman 0.182+/-0.039 [5/5 seeds], Persian 0.052+/-0.012 [5/5 seeds], Siamese 0.044+/-0.024 [5/5 seeds], Maine Coon 0.028+/-0.010 [5/5 seeds], Saint Bernard 0.014+/-0.005 [5/5 seeds]
+  pairwise among the three (true -> pred):
+    Maine Coon -> Persian: 0.048+/-0.013 [5/5 seeds]
+    Maine Coon -> Ragdoll: 0.054+/-0.015 [5/5 seeds]
+    Persian -> Maine Coon: 0.104+/-0.043 [5/5 seeds]
+    Persian -> Ragdoll: 0.026+/-0.005 [5/5 seeds]
+    Ragdoll -> Maine Coon: 0.028+/-0.010 [5/5 seeds]
+    Ragdoll -> Persian: 0.052+/-0.012 [5/5 seeds]
+
+[largest stable off-diagonal confusions (present in all seeds)]
+  true American Pit Bull Terrier (dog) -> pred Staffordshire Bull Terrier: 0.280+/-0.030
+  true Egyptian Mau (cat) -> pred Bengal: 0.198+/-0.037
+  true Ragdoll (cat) -> pred Birman: 0.182+/-0.039
+  true Russian Blue (cat) -> pred British Shorthair: 0.164+/-0.035
+  true Staffordshire Bull Terrier (dog) -> pred American Pit Bull Terrier: 0.151+/-0.017
+  true Birman (cat) -> pred Ragdoll: 0.126+/-0.050
+  true Sphynx (cat) -> pred Chihuahua: 0.116+/-0.017
+  true American Pit Bull Terrier (dog) -> pred American Bulldog: 0.112+/-0.012
+  true Abyssinian (cat) -> pred Bengal: 0.108+/-0.035
+  true Persian (cat) -> pred Maine Coon: 0.104+/-0.043
+
+===== strategy: oversampling  (mean +/- std over 5 seeds) =====
+
+[control pair -- both dogs at full data, scarcity ruled out]
+  true Staffordshire Bull Terrier -> pred American Pit Bull Terrier: 0.196+/-0.038 [5/5 seeds]
+  true American Pit Bull Terrier -> pred Staffordshire Bull Terrier: 0.254+/-0.037 [5/5 seeds]
+
+[Maine Coon / Persian / Ragdoll -- mutual, or different neighbours?]
+  Maine Coon  (recall 0.682) -> Bengal 0.130+/-0.030 [5/5 seeds], Ragdoll 0.058+/-0.020 [5/5 seeds], Abyssinian 0.044+/-0.015 [5/5 seeds], Persian 0.030+/-0.013 [5/5 seeds], British Shorthair 0.012+/-0.007 [4/5 seeds]
+  Persian  (recall 0.782) -> Maine Coon 0.112+/-0.012 [5/5 seeds], Ragdoll 0.056+/-0.012 [5/5 seeds], British Shorthair 0.016+/-0.012 [4/5 seeds], Scottish Terrier 0.010+/-0.000 [5/5 seeds], Egyptian Mau 0.010+/-0.000 [5/5 seeds]
+  Ragdoll  (recall 0.684) -> Birman 0.162+/-0.051 [5/5 seeds], Persian 0.058+/-0.004 [5/5 seeds], Siamese 0.042+/-0.022 [5/5 seeds], Maine Coon 0.014+/-0.015 [3/5 seeds], Shiba Inu 0.012+/-0.004 [5/5 seeds]
+  pairwise among the three (true -> pred):
+    Maine Coon -> Persian: 0.030+/-0.013 [5/5 seeds]
+    Maine Coon -> Ragdoll: 0.058+/-0.020 [5/5 seeds]
+    Persian -> Maine Coon: 0.112+/-0.012 [5/5 seeds]
+    Persian -> Ragdoll: 0.056+/-0.012 [5/5 seeds]
+    Ragdoll -> Maine Coon: 0.014+/-0.015 [3/5 seeds]
+    Ragdoll -> Persian: 0.058+/-0.004 [5/5 seeds]
+
+[largest stable off-diagonal confusions (present in all seeds)]
+  true American Pit Bull Terrier (dog) -> pred Staffordshire Bull Terrier: 0.254+/-0.037
+  true Staffordshire Bull Terrier (dog) -> pred American Pit Bull Terrier: 0.196+/-0.038
+  true Birman (cat) -> pred Ragdoll: 0.184+/-0.056
+  true Egyptian Mau (cat) -> pred Bengal: 0.184+/-0.026
+  true Ragdoll (cat) -> pred Birman: 0.162+/-0.051
+  true Russian Blue (cat) -> pred British Shorthair: 0.146+/-0.058
+  true Maine Coon (cat) -> pred Bengal: 0.130+/-0.030
+  true Persian (cat) -> pred Maine Coon: 0.112+/-0.012
+  true American Pit Bull Terrier (dog) -> pred American Bulldog: 0.110+/-0.011
+  true Siamese (cat) -> pred Birman: 0.106+/-0.029
+
+===== strategy: weighted_ce  (mean +/- std over 5 seeds) =====
+
+[control pair -- both dogs at full data, scarcity ruled out]
+  true Staffordshire Bull Terrier -> pred American Pit Bull Terrier: 0.144+/-0.023 [5/5 seeds]
+  true American Pit Bull Terrier -> pred Staffordshire Bull Terrier: 0.286+/-0.029 [5/5 seeds]
+
+[Maine Coon / Persian / Ragdoll -- mutual, or different neighbours?]
+  Maine Coon  (recall 0.720) -> Bengal 0.096+/-0.020 [5/5 seeds], Abyssinian 0.058+/-0.023 [5/5 seeds], Ragdoll 0.046+/-0.014 [5/5 seeds], Persian 0.032+/-0.007 [5/5 seeds], British Shorthair 0.018+/-0.016 [3/5 seeds]
+  Persian  (recall 0.792) -> Maine Coon 0.116+/-0.048 [5/5 seeds], Ragdoll 0.044+/-0.012 [5/5 seeds], Scottish Terrier 0.010+/-0.000 [5/5 seeds], Egyptian Mau 0.010+/-0.000 [5/5 seeds], Samoyed 0.010+/-0.009 [3/5 seeds]
+  Ragdoll  (recall 0.670) -> Birman 0.120+/-0.058 [5/5 seeds], Siamese 0.070+/-0.021 [5/5 seeds], Persian 0.046+/-0.015 [5/5 seeds], Maine Coon 0.042+/-0.035 [5/5 seeds], Sphynx 0.016+/-0.005 [5/5 seeds]
+  pairwise among the three (true -> pred):
+    Maine Coon -> Persian: 0.032+/-0.007 [5/5 seeds]
+    Maine Coon -> Ragdoll: 0.046+/-0.014 [5/5 seeds]
+    Persian -> Maine Coon: 0.116+/-0.048 [5/5 seeds]
+    Persian -> Ragdoll: 0.044+/-0.012 [5/5 seeds]
+    Ragdoll -> Maine Coon: 0.042+/-0.035 [5/5 seeds]
+    Ragdoll -> Persian: 0.046+/-0.015 [5/5 seeds]
+
+[largest stable off-diagonal confusions (present in all seeds)]
+  true American Pit Bull Terrier (dog) -> pred Staffordshire Bull Terrier: 0.286+/-0.029
+  true Egyptian Mau (cat) -> pred Bengal: 0.204+/-0.014
+  true Birman (cat) -> pred Ragdoll: 0.204+/-0.087
+  true Russian Blue (cat) -> pred British Shorthair: 0.144+/-0.059
+  true Staffordshire Bull Terrier (dog) -> pred American Pit Bull Terrier: 0.144+/-0.023
+  true Birman (cat) -> pred Siamese: 0.128+/-0.066
+  true British Shorthair (cat) -> pred Russian Blue: 0.122+/-0.034
+  true Ragdoll (cat) -> pred Birman: 0.120+/-0.058
+  true Persian (cat) -> pred Maine Coon: 0.116+/-0.048
+  true Abyssinian (cat) -> pred Bengal: 0.112+/-0.047
+
+===== strategy: weighted_ce+oversampling  (mean +/- std over 5 seeds) =====
+
+[control pair -- both dogs at full data, scarcity ruled out]
+  true Staffordshire Bull Terrier -> pred American Pit Bull Terrier: 0.166+/-0.050 [5/5 seeds]
+  true American Pit Bull Terrier -> pred Staffordshire Bull Terrier: 0.292+/-0.007 [5/5 seeds]
+
+[Maine Coon / Persian / Ragdoll -- mutual, or different neighbours?]
+  Maine Coon  (recall 0.728) -> Bengal 0.130+/-0.026 [5/5 seeds], Ragdoll 0.050+/-0.023 [5/5 seeds], Abyssinian 0.036+/-0.014 [5/5 seeds], Persian 0.024+/-0.008 [5/5 seeds], Bombay 0.014+/-0.010 [4/5 seeds]
+  Persian  (recall 0.782) -> Maine Coon 0.126+/-0.022 [5/5 seeds], Ragdoll 0.044+/-0.015 [5/5 seeds], British Shorthair 0.018+/-0.010 [5/5 seeds], Egyptian Mau 0.012+/-0.004 [5/5 seeds], Scottish Terrier 0.010+/-0.000 [5/5 seeds]
+  Ragdoll  (recall 0.668) -> Birman 0.150+/-0.045 [5/5 seeds], Persian 0.056+/-0.008 [5/5 seeds], Siamese 0.050+/-0.023 [5/5 seeds], Maine Coon 0.036+/-0.021 [5/5 seeds], Abyssinian 0.014+/-0.005 [5/5 seeds]
+  pairwise among the three (true -> pred):
+    Maine Coon -> Persian: 0.024+/-0.008 [5/5 seeds]
+    Maine Coon -> Ragdoll: 0.050+/-0.023 [5/5 seeds]
+    Persian -> Maine Coon: 0.126+/-0.022 [5/5 seeds]
+    Persian -> Ragdoll: 0.044+/-0.015 [5/5 seeds]
+    Ragdoll -> Maine Coon: 0.036+/-0.021 [5/5 seeds]
+    Ragdoll -> Persian: 0.056+/-0.008 [5/5 seeds]
+
+[largest stable off-diagonal confusions (present in all seeds)]
+  true American Pit Bull Terrier (dog) -> pred Staffordshire Bull Terrier: 0.292+/-0.007
+  true Birman (cat) -> pred Ragdoll: 0.188+/-0.058
+  true Egyptian Mau (cat) -> pred Bengal: 0.184+/-0.036
+  true Staffordshire Bull Terrier (dog) -> pred American Pit Bull Terrier: 0.166+/-0.050
+  true Ragdoll (cat) -> pred Birman: 0.150+/-0.045
+  true Maine Coon (cat) -> pred Bengal: 0.130+/-0.026
+  true British Shorthair (cat) -> pred Russian Blue: 0.126+/-0.028
+  true Persian (cat) -> pred Maine Coon: 0.126+/-0.022
+  true American Pit Bull Terrier (dog) -> pred American Bulldog: 0.118+/-0.012
+  true Russian Blue (cat) -> pred British Shorthair: 0.108+/-0.034

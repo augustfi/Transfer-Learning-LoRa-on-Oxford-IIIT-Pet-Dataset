@@ -21,7 +21,7 @@ illustrations referenced by the report.
   - [3. Hardware](#3-hardware)
 - [How the code maps to the report](#how-the-code-maps-to-the-report)
 - [Running the experiments](#running-the-experiments)
-  - [General rule: run each script from its own folder](#general-rule-run-each-script-from-its-own-folder)
+  - [General rule: launch from anywhere](#general-rule-launch-from-anywhere)
   - [5.1 Binary classification](#51-binary-classification--srcbinary_classification)
   - [5.2 Breed classification](#52-breed-classification--srcbreed_classification)
   - [5.2.1 Fine-tuning L layers](#521-fine-tuning-l-layers--srcfinetune_l_layers)
@@ -75,9 +75,12 @@ illustrations referenced by the report.
 ```
 
 **Design note:** every script writes its plots to `data/figures/<experiment>/` and reads
-the dataset from the repository root. Both paths are relative (`../..` for the data root,
-`../../data/figures/<experiment>/` for outputs), so **a script only resolves its paths
-correctly when run from its own folder** — see [the general rule](#general-rule-run-each-script-from-its-own-folder).
+the dataset from the repository root. Paths are written relative to each script's own
+location, and every runnable script starts with a small **launch guard** that `chdir`s to
+its own folder and puts that folder on `sys.path`. This means you can launch a script from
+**any** working directory — a terminal, an IDE, or **VS Code Code Runner** (which runs from
+the workspace root) — and it will still find the dataset, write figures to the right place,
+and resolve sibling imports like `from lora_finetune import ...`.
 
 ---
 
@@ -137,18 +140,23 @@ no GPU.
 
 ## Running the experiments
 
-### General rule: run each script from its own folder
+### General rule: launch from anywhere
 
-Paths are relative, so **always `cd` into the script's directory first**:
+Thanks to the per-script launch guard, you can run a script from **any** working directory —
+`cd`-ing first is optional. Both of these work identically:
 
 ```bash
-cd src/<experiment_folder>
-python <script>.py
+# from the script's own folder
+cd src/imbalanced && python imbalanced_finetune.py
+
+# or from the repo root (this is what VS Code Code Runner does)
+python src/imbalanced/imbalanced_finetune.py
 ```
 
-Running from anywhere else will break dataset loading and/or figure saving. The LoRA scripts
-additionally rely on `from lora_finetune import ...`, which only resolves when run from
-`src/lora/`.
+Either way the script relocates to its own folder, so the dataset loads, figures are written
+to `data/figures/<experiment>/`, and sibling imports (`from lora_finetune import ...`,
+`from analysis.confusion import ...`) resolve correctly. **VS Code Code Runner works out of
+the box** — no configuration needed.
 
 ---
 
@@ -324,8 +332,10 @@ same run — they are safe to delete.
 - **The imbalanced experiment was aligned to the report.** It previously trained L = 2 blocks
   with AdamW; it now trains a true linear probe with plain Adam + an L1 penalty, matching the
   report's §5.2.4 setup. Re-running produces the report's numbers, not the old ones.
-- **Run from the script's own folder** (paths are relative). The LoRA scripts additionally need
-  to be run from `src/lora/` for `from lora_finetune import ...` to resolve.
+- **Launch location no longer matters.** Each runnable script starts with a launch guard that
+  `chdir`s to its own folder and extends `sys.path`, so running from the repo root / an IDE /
+  Code Runner all behave the same as running from the script's folder. (`lora_finetune.py` is a
+  library and has no guard; `lora_alpha_search.py` is the non-standalone fragment noted above.)
 
 ---
 
