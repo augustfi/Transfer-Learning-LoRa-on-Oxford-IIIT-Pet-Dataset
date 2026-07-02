@@ -343,7 +343,5 @@ same run — they are safe to delete.
 
 Group 2 — KTH Royal Institute of Technology (DD2424 Deep Learning in Data Science):
 
-- John Christensen — johnchr@kth.se
-- August Filannino — augustfi@kth.se
-- Samy Zouggari — zouggari@kth.se
-- Lydia Nasser — lhnasser@kth.se
+
+- August Filannino 
